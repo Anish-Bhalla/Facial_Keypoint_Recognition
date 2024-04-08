@@ -1,4 +1,4 @@
-# Facial Landmark Recognition
+# Facial KeyPoint Recognition
 
 
 This repository implements a facial keypoint detection system using Convolutional Neural Network CNNs. It enables the identification of 15 key points on a face, viz. the corners & center point of eyes, eyebrows, nose tip, and mouth, which can be valuable for various computer vision applications. 
