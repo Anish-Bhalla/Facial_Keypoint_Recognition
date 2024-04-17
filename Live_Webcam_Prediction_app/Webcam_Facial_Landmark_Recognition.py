@@ -5,21 +5,14 @@ from mtcnn import MTCNN
 import matplotlib.pyplot as plt
 import os
 # Load our trained keypoint detection model
-def rmse(y_true, y_pred):
-    return tf.sqrt(tf.reduce_mean(tf.square(y_true - y_pred)))
 cwd = os.getcwd()
 model_path = os.path.join(cwd,"mobilenet_model")
 model = tf.keras.layers.TFSMLayer(model_path, call_endpoint='serving_default')
 
-
 cap = cv2.VideoCapture(0)
-
 detector = MTCNN()
-# Initialize webcam with reduced dimensions
 cap = cv2.VideoCapture(0)
-# cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
-# cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
-# ret, frame = cap.read()
+
 def preprocess_frame(frame):
     frame = frame.astype(np.float32) / 255.0
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -53,7 +46,6 @@ while True:
 
         # Draw facial landmarks on the frame
         for i in range(15):
-            #point_x, point_y = point.astype(int)
             cv2.circle(frame, (int(x_in_frame[i]), int(y_in_frame[i])), 3, (0, 0, 255),-1)
         
         # Display the frame
@@ -63,7 +55,6 @@ while True:
              
         # Exit loop if 'qq' is pressed
     if cv2.waitKey(100) & 0xFF == ord('q'):
-        #plt.savefig(r'D:\Users\Anish Bhalla\Desktop\AB\Coding\PG IITRoorkee\Final_project\New folder\predicted_facial_points.jpg',)
         break
 
 # Ask user to save the frame
