@@ -49,8 +49,8 @@ while True:
             cv2.circle(frame, (int(x_in_frame[i]), int(y_in_frame[i])), 3, (0, 0, 255),-1)
         
         # Display the frame
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        cv2.imshow('Facial Landmarks', frame)
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    cv2.imshow('Facial Landmarks', frame)
 
              
         # Exit loop if 'qq' is pressed
