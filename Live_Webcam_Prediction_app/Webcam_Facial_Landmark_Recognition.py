@@ -35,25 +35,26 @@ while True:
         predictions = model(tf.constant(np.expand_dims(processed_frame,axis=0)))
         predictions = np.array(predictions['output_0'])
 
+        # coordinates when the facial image is of size (96,96)
         x_in_96,y_in_96 = predictions[0,::2],predictions[0,1::2]
-        x_in_96.shape,y_in_96.shape
 
+        # coordinates scaled to the size of the detected face 
         x_in_facial_image = (x_in_96 / 96)*facial_image.shape[1]
         y_in_facial_image = (y_in_96 / 96)*facial_image.shape[0]
 
+        # coordinates values in the frame 
         x_in_frame = x_in_facial_image + x
         y_in_frame = y_in_facial_image + y
 
         # Draw facial landmarks on the frame
         for i in range(15):
             cv2.circle(frame, (int(x_in_frame[i]), int(y_in_frame[i])), 3, (0, 0, 255),-1)
-        
-        # Display the frame
+
+    # After drawing features on all faces, lets show the frame with facial features
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     cv2.imshow('Facial Landmarks', frame)
 
-             
-        # Exit loop if 'qq' is pressed
+    # Exit loop if 'q' is pressed
     if cv2.waitKey(100) & 0xFF == ord('q'):
         break
 
