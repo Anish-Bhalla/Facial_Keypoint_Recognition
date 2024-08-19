@@ -1,7 +1,7 @@
 # Facial KeyPoint Recognition
 
 
-This repository implements a facial keypoint detection system using Convolutional Neural Network CNNs. It enables the identification of 15 crucial points on the face, including the 3 points for both the corners & a center point of the eyes, 2 for eyebrows, 1 for nose tip, and 4 points for the mouth. This can be used as a building block in several applications, such as:
+This repository implements a facial keypoint detection system using Convolutional Neural Network CNNs. It enables the identification of 15 crucial points on the face, including the 3 points for both the corners & a center point of the eyes, 2 for eyebrows (i.e. 3+2=5 points for one eye, so 5X2=10 points for both eyes), 1 for nose tip, and 4 points for the mouth. This can be used as a building block in several applications, such as:
 
 - Creating Filters in social media apps
 
